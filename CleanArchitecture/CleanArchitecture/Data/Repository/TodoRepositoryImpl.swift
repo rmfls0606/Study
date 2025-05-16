@@ -33,4 +33,8 @@ class TodoRepositoryImpl: TodoRepository{
     func addTodo(title: String) async throws {
         try await remoteDataSource.addTodoToAPI(title: title)
     }
+    
+    func toggleTodoStatus(id: UUID) async throws {
+        try await remoteDataSource.toggleTodoStatus(id: id)
+    }
 }
