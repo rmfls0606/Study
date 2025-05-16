@@ -38,4 +38,10 @@ class TodoRemoteDataSource{
         //실제 서버에 보내지 않고, 메모리에 추가
         todos.append(newTodo)
     }
+    
+    func toggleTodoStatus(id: UUID) async throws{
+        if let index = todos.firstIndex(where: { $0.id == id }){
+            todos[index].isDone.toggle()
+        }
+    }
 }
