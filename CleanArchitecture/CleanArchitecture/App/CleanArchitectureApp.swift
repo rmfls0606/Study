@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CleanArchitectureApp: App {
+    //앱 시작 시 ViewModel 생성(AppDIContainer 활용)
+    @MainActor
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TodoListView(vieWModel: AppDIContainer().makeTodoViewModel())
         }
     }
 }
