@@ -15,15 +15,18 @@ class TodoViewModel: ObservableObject{
     private let fetchTodosUseCase: FetchTodosUseCase
     private let addTodoUseCase: AddTodoUseCase
     private let toggleTodoStatusUseCase: ToggleTodoStatusUseCase
+    private let deleteTodoUseCase: DeleteTodoUseCase
     
     init(
         fetchTodosUseCase: FetchTodosUseCase,
         addTodoUseCase: AddTodoUseCase,
-        toggleTodoStatusUseCase: ToggleTodoStatusUseCase
+        toggleTodoStatusUseCase: ToggleTodoStatusUseCase,
+        deleteTodoUseCase: DeleteTodoUseCase
     ){
         self.fetchTodosUseCase = fetchTodosUseCase
         self.addTodoUseCase = addTodoUseCase
         self.toggleTodoStatusUseCase = toggleTodoStatusUseCase
+        self.deleteTodoUseCase = deleteTodoUseCase
     }
     
     func loadTodos() async{
@@ -49,6 +52,15 @@ class TodoViewModel: ObservableObject{
             await loadTodos()
         }catch{
             print("상태 토글 실패: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteTodo(id: UUID) async{
+        do{
+            try await deleteTodoUseCase.excute(id: id)
+            await loadTodos()
+        }catch{
+            print("삭제 실패: \(error.localizedDescription)")
         }
     }
 }
