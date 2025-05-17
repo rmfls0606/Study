@@ -19,11 +19,15 @@ struct AppDIContainer{
         //UseCase 생성
         let fetchUseCase = FetchTodosUseCaseImpl(repository: repository)
         let addUseCase = AddTodoUseCaseImpl(repository: repository)
+        let toggleUseCase = ToggleTodoStatusUseCaseImpl(
+            repository: repository
+        )
         
         //ViewModel 생성
         return TodoViewModel(
             fetchTodosUseCase: fetchUseCase,
-            addTodoUseCase: addUseCase
+            addTodoUseCase: addUseCase,
+            toggleTodoStatusUseCase: toggleUseCase
         )
     }
 }
