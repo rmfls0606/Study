@@ -32,11 +32,15 @@ struct TodoListView: View {
 
                         Text(todo.title)
                         
+                        Spacer()
+                        
                         Button("삭제") {
                             Task{
                                 await vieWModel.deleteTodo(id: todo.id)
                             }
                         }
+                        .foregroundStyle(.red)
+                        .buttonStyle(.plain)
                     }//: HSTACK
                 }//: LIST
                 
