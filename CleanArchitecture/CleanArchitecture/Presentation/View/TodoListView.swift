@@ -21,7 +21,15 @@ struct TodoListView: View {
             VStack{
                 List(vieWModel.todos, id: \.id){ todo in
                     HStack{
-                        Image(systemName: todo.isDone ? "checkmark.circle.fill" : "circle")
+                        Button {
+                            Task{
+                                await vieWModel.toggleTodo(id: todo.id)
+                            }
+                        } label: {
+                            Image(systemName: todo.isDone ? "checkmark.circle.fill" : "circle")
+                                .foregroundStyle(todo.isDone ? .green : .green)
+                        }
+
                         Text(todo.title)
                     }//: HSTACK
                 }//: LIST
