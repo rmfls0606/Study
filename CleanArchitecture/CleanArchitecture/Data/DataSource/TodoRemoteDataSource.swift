@@ -44,4 +44,8 @@ class TodoRemoteDataSource{
             todos[index].isDone.toggle()
         }
     }
+    
+    func deleteTodo(id: UUID) async throws{
+        todos.removeAll { $0.id == id }
+    }
 }
