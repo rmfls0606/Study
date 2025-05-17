@@ -65,7 +65,8 @@ struct TodoListView: View {
     let viewModel = TodoViewModel(
         fetchTodosUseCase: MockFetchTodosUseCase(),
         addTodoUseCase: MockAddTodoUseCase(),
-        toggleTodoStatusUseCase: MockToggleStatusUseCase()
+        toggleTodoStatusUseCase: MockToggleStatusUseCase(),
+        deleteTodoUseCase: MockDeleteTodoUseCase()
     )
     TodoListView(vieWModel: viewModel)
 }
