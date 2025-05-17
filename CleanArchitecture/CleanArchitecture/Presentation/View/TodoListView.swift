@@ -29,19 +29,20 @@ struct TodoListView: View {
                             Image(systemName: todo.isDone ? "checkmark.circle.fill" : "circle")
                                 .foregroundStyle(todo.isDone ? .green : .green)
                         }
-
+                        
                         Text(todo.title)
-                        
-                        Spacer()
-                        
-                        Button("삭제") {
-                            Task{
-                                await vieWModel.deleteTodo(id: todo.id)
+                    }//: HSTACK
+                    .swipeActions(
+                        edge: .trailing,
+                        allowsFullSwipe: true) {
+                            Button(role: .destructive) {
+                                Task{
+                                    await vieWModel.deleteTodo(id: todo.id)
+                                }
+                            } label: {
+                                Label("삭제", systemImage: "trash")
                             }
                         }
-                        .foregroundStyle(.red)
-                        .buttonStyle(.plain)
-                    }//: HSTACK
                 }//: LIST
                 
                 HStack{
