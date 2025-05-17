@@ -31,6 +31,12 @@ struct TodoListView: View {
                         }
 
                         Text(todo.title)
+                        
+                        Button("삭제") {
+                            Task{
+                                await vieWModel.deleteTodo(id: todo.id)
+                            }
+                        }
                     }//: HSTACK
                 }//: LIST
                 
