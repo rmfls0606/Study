@@ -14,10 +14,16 @@ class TodoViewModel: ObservableObject{
     //추상화된 UseCase 주입(DIP 유지)
     private let fetchTodosUseCase: FetchTodosUseCase
     private let addTodoUseCase: AddTodoUseCase
+    private let toggleTodoStatusUseCase: ToggleTodoStatusUseCase
     
-    init(fetchTodosUseCase: FetchTodosUseCase, addTodoUseCase: AddTodoUseCase){
+    init(
+        fetchTodosUseCase: FetchTodosUseCase,
+        addTodoUseCase: AddTodoUseCase,
+        toggleTodoStatusUseCase: ToggleTodoStatusUseCase
+    ){
         self.fetchTodosUseCase = fetchTodosUseCase
         self.addTodoUseCase = addTodoUseCase
+        self.toggleTodoStatusUseCase = toggleTodoStatusUseCase
     }
     
     func loadTodos() async{
@@ -34,6 +40,15 @@ class TodoViewModel: ObservableObject{
             await loadTodos() //추가 후 목록 새로고침
         }catch{
             print("Todo 추가 실패: \(error.localizedDescription)")
+        }
+    }
+    
+    func toggleTodo(id: UUID) async{
+        do{
+            try await toggleTodoStatusUseCase.excute(id: id)
+            await loadTodos()
+        }catch{
+            print("상태 토글 실패: \(error.localizedDescription)")
         }
     }
 }
