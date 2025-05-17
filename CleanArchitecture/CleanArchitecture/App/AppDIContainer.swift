@@ -22,12 +22,14 @@ struct AppDIContainer{
         let toggleUseCase = ToggleTodoStatusUseCaseImpl(
             repository: repository
         )
+        let delteUseCase = DeleteTodoUseCaseImpl(repository: repository)
         
         //ViewModel 생성
         return TodoViewModel(
             fetchTodosUseCase: fetchUseCase,
             addTodoUseCase: addUseCase,
-            toggleTodoStatusUseCase: toggleUseCase
+            toggleTodoStatusUseCase: toggleUseCase,
+            deleteTodoUseCase: delteUseCase
         )
     }
 }
