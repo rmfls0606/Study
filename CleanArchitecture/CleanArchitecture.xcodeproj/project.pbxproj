@@ -21,6 +21,11 @@
 			path = CleanArchitecture;
 			sourceTree = "<group>";
 		};
+		797825F62DDE59D6002D46FC /* images */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +42,7 @@
 		7978259D2DD39FE8002D46FC = {
 			isa = PBXGroup;
 			children = (
+				797825F62DDE59D6002D46FC /* images */,
 				797825F42DDE5835002D46FC /* README.md */,
 				797825A82DD39FE8002D46FC /* CleanArchitecture */,
 				797825A72DD39FE8002D46FC /* Products */,
@@ -68,6 +74,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				797825A82DD39FE8002D46FC /* CleanArchitecture */,
+				797825F62DDE59D6002D46FC /* images */,
 			);
 			name = CleanArchitecture;
 			packageProductDependencies = (
