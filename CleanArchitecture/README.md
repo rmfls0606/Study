@@ -12,10 +12,10 @@
     <td align="center">할 일 삭제</td>
   </tr>
   <tr>
-    <td><img src="image-6.png" width="200"/></td>
-    <td><img src="image-5.png" width="200"/></td>
-    <td><img src="image-4.png" width="200"/></td>
-    <td><img src="image-3.png" width="200"/></td>
+    <td><img src="./images/image-6.png" width="200"/></td>
+    <td><img src="./images/image-5.png" width="200"/></td>
+    <td><img src="./images/image-4.png" width="200"/></td>
+    <td><img src="./images/image-3.png" width="200"/></td>
   </tr>
 </table>
 
@@ -27,7 +27,7 @@
 
 
 ## 3. 디렉토리 구조
-<img src = "image-2.png" width = "350" height = "500">
+<img src = "./images/image-2.png" width = "350" height = "500">
 
 ## 4. Q&A
 
