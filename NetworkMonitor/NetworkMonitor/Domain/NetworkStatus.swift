@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkStatus{
+enum NetworkStatus: Equatable{
     case connected(NetworkType) //어떤 타입으로 연결
     case disconnected //비연결
 }
